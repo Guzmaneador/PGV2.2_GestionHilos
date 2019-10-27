@@ -10,24 +10,20 @@ public class Parking {
     int numeroPlazas;
     int numeroPlazasOcupadas;
     boolean completo;
-    //Coche cochesAparcados[] ;
-    //ArrayList<Integer> plazasOcupadas;
 
     
     public Parking(){
         numeroPlazas=115;
         completo=false;
         numeroPlazasOcupadas=0;
-       // cochesAparcados = new Coche[115];
 
     }
     
-    synchronized public void entraCoche(Coche coche) throws InterruptedException{
-        if(completo){
+    synchronized public void entraCoche() throws InterruptedException{
+        while(completo){
             wait();
-        }else{
+        }
             numeroPlazasOcupadas++;
-            System.out.println("Entra el coche numero: "+coche.getNumeroCoche());
 
             if(numeroPlazas==numeroPlazasOcupadas){
                 completo = true;
@@ -35,20 +31,21 @@ public class Parking {
             }
             
             
-        }
+        
         
         
      
     }
-    synchronized public void saleCoche(Coche coche){
+    synchronized public void saleCoche(){
         if(completo){
             completo = false;
             numeroPlazasOcupadas--;
+            System.out.println("-->Plazas disponibles, se aceptan mas coches.\n");
+            notifyAll();
+
         }else{
             if(numeroPlazasOcupadas !=0){
                 numeroPlazasOcupadas--;
-                System.out.println("Sale el coche numero: "+coche.getNumeroCoche());
-
             }else{
                 System.out.println("La jodiste.");
             }           

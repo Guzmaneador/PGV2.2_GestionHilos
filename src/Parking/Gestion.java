@@ -1,8 +1,6 @@
 package Parking;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +13,7 @@ public class Gestion {
     public Gestion() {
         listaCoches= new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
-            listaCoches.add(new Coche(i));   
+            listaCoches.add(new Coche(i,parking));   
         }
         abreElParking();
     }
@@ -25,28 +23,18 @@ public class Gestion {
     public void  abreElParking(){
         
            for (Coche coche : listaCoches) {
-                coche.start();
-//                parking.entraCoche(coche);
-//                coche.estanciaAparcado();
-//                parking.saleCoche(coche);        
-           }
-           for (Coche coche : listaCoches) {
-               try {
-                   parking.entraCoche(coche);
-                   coche.estanciaAparcado();        
-                   parking.saleCoche(coche);
-               } catch (InterruptedException ex) {
-                   Logger.getLogger(Gestion.class.getName()).log(Level.SEVERE, null, ex);
-               }
+                coche.start();       
            }
   
     }
-//    public static void entraCoche() throws InterruptedException{
-//        parking.entraCoche();
-//    }
-//    public static void saleCoche(){
-//        parking.saleCoche();
-//    }
+
+    public static Parking getParking() {
+        return parking;
+    }
+
+    public static void setParking(Parking parking) {
+        Gestion.parking = parking;
+    }
     
     
 
