@@ -29,12 +29,7 @@ public class Parking {
                 completo = true;
                 System.out.println("Parking completo, no se aceptan mas coches.");
             }
-            
-            
-        
-        
-        
-     
+
     }
     synchronized public void saleCoche(){
         if(completo){
