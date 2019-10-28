@@ -1,4 +1,4 @@
-package Parking;
+package Semaforo;
 
 import java.util.ArrayList;
 
