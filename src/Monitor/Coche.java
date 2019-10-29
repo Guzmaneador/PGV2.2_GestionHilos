@@ -17,9 +17,7 @@ public class Coche extends Thread{
         this.parking=parking;
         this.numeroCoche=numeroCoche;
         tiempoEstancia();
-    }
-    
-    
+    } 
    /*
     Hace que el hilo ejecute la zonas syncorinizadas de la instancia de parking
     que tienes todos los hilos en comun de forma que nunca podran salir ni entrar
@@ -48,7 +46,5 @@ public class Coche extends Thread{
     public void estanciaAparcado() throws InterruptedException{
         sleep(tiempo);
     }
-
-    
 
 }

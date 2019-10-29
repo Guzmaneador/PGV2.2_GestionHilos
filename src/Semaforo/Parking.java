@@ -45,15 +45,12 @@ public class Parking {
         if(completo){
             completo = false;
             numeroPlazasOcupadas--;
-            System.out.println("-->Plazas disponibles, se aceptan mas coches.\n");
             semaforoEntrada.release();
 
         }else{
             if(numeroPlazasOcupadas !=0){
                 numeroPlazasOcupadas--;
-            }else{
-                System.out.println("La jodiste.");
-            }           
+            }       
         }
 
     }
